@@ -14,6 +14,11 @@ urlpatterns = [
     path('api/login/', TokenObtainPairView.as_view(), name='api-login'),
     path('api/register/', api_views.Register.as_view(), name='api-register'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+
+    path('api/classroom_list/', api_views.ClassroomList.as_view(), name='api-classroom-list'),
+    path('api/classroom/<int:classroom_id>/', api_views.ClassroomDetails.as_view(), name="api-classroom-detail"),
+    path('api/classroom/create/', api_views.ClassroomCreate.as_view(), name="api-classroom-create"),
+
     path('admin/', admin.site.urls),
     path('classrooms/', views.classroom_list, name='classroom-list'),
     path('classrooms/<int:classroom_id>/', views.classroom_detail, name='classroom-detail'),
